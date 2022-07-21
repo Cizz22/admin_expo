@@ -365,8 +365,10 @@
                     <tr>
                         <td class="tg-0pky" colspan="4">
                             <div class="row-span-2">
-                                <img src="https://media.istockphoto.com/photos/background-of-galaxy-and-stars-picture-id1035676256?b=1&k=20&m=1035676256&s=170667a&w=0&h=NOtiiFfDhhUhZgQ4wZmHPXxHvt3RFVD-lTmnWCeyIG4="
+                                <img src="{{$logo}}"
                                     class="object-cover" />
+                                    <small class="mx-auto">Multiverse of Interest: Fire It On!
+                                    </small>
                             </div>
                         </td>
                         <td class="tg-0pky" colspan="4">

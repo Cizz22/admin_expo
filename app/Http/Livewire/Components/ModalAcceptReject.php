@@ -42,8 +42,9 @@ class ModalAcceptReject extends ModalComponent
             $name = $this->booking['name'];
             $filename = $uniqueId . '_' . $name . '.pdf';
             $total = $this->total;
+            $logo = asset('img/logo.png');
 
-            $pdf = Pdf::loadView('vendor.pdf', compact(['uniqueId', 'barcode', 'password', 'name', 'i', 'total']))->save("storage/tickets/$filename");
+            $pdf = Pdf::loadView('vendor.pdf', compact(['uniqueId', 'barcode', 'password', 'name', 'i', 'total', 'logo']))->save("storage/tickets/$filename");
 
             dd('debau');
             array_push($tickets, "/storage/tickets/$filename");
