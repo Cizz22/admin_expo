@@ -41,9 +41,11 @@ class ModalAcceptReject extends ModalComponent
             $password = substr(str_shuffle(str_repeat($x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(5 / strlen($x)))), 1, 5);
             $name = $this->booking['name'];
             $filename = $uniqueId . '_' . $name . '.pdf';
+            $total = $this->total;
 
-            $pdf = Pdf::loadView('vendor.pdf', compact(['uniqueId', 'barcode', 'password', 'name']))->save("storage/tickets/$filename");
+            $pdf = Pdf::loadView('vendor.pdf', compact(['uniqueId', 'barcode', 'password', 'name', 'i', 'total']))->save("storage/tickets/$filename");
 
+            dd('debau');
             array_push($tickets, "/storage/tickets/$filename");
             $collect->push([
                 "uniqueId" => $uniqueId,
@@ -54,14 +56,14 @@ class ModalAcceptReject extends ModalComponent
             ]);
         }
 
-        Http::post("https://server.tesdeveloper.me/v1/ticketing/verification", [
+
+        $res = Http::post("https://server.tesdeveloper.me/v1/ticketing/verification", [
             "booking_id" => $this->booking['id'],
             "status" => "accept",
             "ticket_data" => $collect->toArray(),
-        ]);
+        ])->json();
 
-
-        Mail::to($this->booking['email'])->send(new TicketMail($this->booking['name'], $tickets));
+        if($res['success']) Mail::to($this->booking['email'])->send(new TicketMail($this->booking['name'], $tickets));
 
         $this->closeModal();
     }

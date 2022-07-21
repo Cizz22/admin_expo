@@ -74,7 +74,7 @@
         }
 
         .container {
-            max-width: 495px
+            max-width: 500px
         }
 
         .mx-auto {
@@ -259,12 +259,12 @@
         }
 
         .tg td {
-            border-color: gray;
+            border-color: rgb(209 213 219 / 1);
             border-style: solid;
-            border-width: 2px;
+            border-width: 5px;
             border-left-width: 0;
-            border-top-width: 2px;
-            border-bottom-width: 2px;
+            border-top-width: 8px;
+            border-bottom-width: 8px;
             font-family: Arial, sans-serif;
             font-size: 14px;
             overflow: auto;
@@ -272,12 +272,16 @@
             word-break: normal;
         }
 
+        .text-orange-500 {
+            color: rgb(249 115 22 / var(--tw-text-opacity));
+        }
+
         .tg th {
-            border-color: gray;
+            border-color: rgb(209 213 219 / var(--tw-bg-opacity));
             border-style: solid;
             border-left-width: 0;
-            border-top-width: 2px;
-            border-bottom-width: 2px;
+            border-top-width: 8px;
+            border-bottom-width: 8px;
             font-family: Arial, sans-serif;
             font-size: 14px;
             font-weight: normal;
@@ -293,6 +297,16 @@
 
         .page-break {
             page-break-after: always;
+        }
+
+        .bg {
+            --tw-bg-opacity: 1;
+            background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+        }
+
+        li {
+            align-content: stretch !important;
+            margin-bottom: 5px;
         }
 
 
@@ -311,13 +325,19 @@
                 -webkit-overflow-scrolling: touch;
             }
 
+            .bg-blue-200 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(191 219 254 / var(--tw-bg-opacity));
+            }
+
         }
     </style>
 </head>
 
 <body class="print-block">
-    <main class="container mx-auto">
+    <main class="container mx-auto bg bg-gray-300">
         <div class="tg-wrap">
+
 
             <table class="tg">
                 <tbody>
@@ -334,8 +354,11 @@
                     <tr>
                         <td class="tg-0pky" colspan="8">
                             <div class="row-span-2">
-                                <img src="https://media.istockphoto.com/photos/background-of-galaxy-and-stars-picture-id1035676256?b=1&k=20&m=1035676256&s=170667a&w=0&h=NOtiiFfDhhUhZgQ4wZmHPXxHvt3RFVD-lTmnWCeyIG4="
-                                    class="object-cover" />
+                                <di class="mx-auto w-100">
+                                    <img src="https://media.istockphoto.com/photos/background-of-galaxy-and-stars-picture-id1035676256?b=1&k=20&m=1035676256&s=170667a&w=0&h=NOtiiFfDhhUhZgQ4wZmHPXxHvt3RFVD-lTmnWCeyIG4="
+                                        class="object-cover" />
+                                </di>
+
                             </div>
                         </td>
                     </tr>
@@ -350,7 +373,8 @@
                             <div class="bg-white p-4">
                                 <img src="{{ $barcode }}" class="object-cover" />
                                 <p class="text-base text-center font-semibold">{{ $uniqueId }}</p>
-                                <p class="text-base text-center font-semibold">Ticket 1 of 1</p>
+                                <p class="text-base text-center font-semibold">Ticket {{ $i }} of
+                                    {{ $total }}</p>
                             </div>
                         </td>
                     </tr>
@@ -358,13 +382,13 @@
                         <td class="tg-0pky" colspan="4">
                             <div
                                 class="text-center font-semibold text-base bg-white px-4 justify-center items-center flex flex-col">
-                                <h2 class="font-bold">UKM EXPO 2022</h2>
-                                <h3>25 - 26 Agustus 2022</h3>
+                                <h3 class="font-bold">CLOSING UKM EXPO 2022</h2>
+                                <h4>27 Agustus 2022 </h4>
+                                <h5>17.30 - 23.00</h5>
                                 <p>
-                                    Jl. Teknik Kimia, Keputih, Kec. Sukolilo, Kota SBY, Jawa Timur
-                                    60111
+                                    Taman Alumni ITS, Institut Teknologi Sepuluh Nopember, Kota
+                                    Surabaya, Jawa Timur
                                 </p>
-                                <p>Loket UKM Expo</p>
                             </div>
                         </td>
                         <td class="tg-0pky" colspan="4">
@@ -379,89 +403,85 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="tg-0pky" colspan="8" rowspan="2">
+                        <td class="tg-0pky" colspan="8" rowspan="2" style="border-right-width: 0!important">
                             <section class="bg-white p-12">
-                                <h2 class="text-center text-orange-500 font-bold text-base mb-8 text-lg">TERMS &
+                                <h2 class="text-center text-orange-500 font-bold text-base mb-8">TERMS &
                                     CONDITION</h2>
-                                <h3 class="font-bold text-lg mb-3 text-lg uppercase">Regulasi Tiket</h3>
+                                <h3 class="font-bold text-lg mb-3 uppercase">Regulasi Tiket</h3>
                                 <ul class="list-disc p-4 text-base mb-4">
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
-                                    <li class="page-break">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
+                                    <li>Pengunjung yang sudah membeli tiket akan mendapatkan email berupa e-tiket.</li>
+                                    <li>Pengunjung WAJIB memiliki 2 kali riwayat vaksinasi dengan menunjukkan scan
+                                        Peduli Lindungi.</li>
+                                    <li>Pengunjung WAJIB membawa kartu pengenal (KTP/KTM/Kartu Pelajar) yang valid dan
+                                        sesuai saat penukaran e-tiket di venue saat hari-H. </li>
+                                    <li>Pengunjung WAJIB membawa e-tiket berupa bentuk digital atau print out saat
+                                        penukaran di venue saat hari-H.</li>
+                                    <li>Registrasi hari-H dilakukan dengan e-tiket yang akan discan oleh panitia.
+                                        E-tiket nantinya akan ditukar dengan gelang tiket.</li>
+                                    <li>Gelang tiket WAJIB dipakai saat memasuki area CLOSING UKM EXPO 2022.</li>
+                                    <li>Kerusakan dan kehilangan gelang tiket oleh pengunjung bukan merupakan tanggung
+                                        jawab panitia.</li>
+                                    <li>1 (satu) tiket hanya berlaku untuk 1 (satu) orang/pengunjung.</li>
+                                    <li>Tiket yang sudah dibeli tidak dapat dikembalikan dalam situasi dan kondisi
+                                        apapun.</li>
+                                    <li>Pengunjung DILARANG mengunggah foto e-tiket ke publik/media sosial demi
+                                        menghindari pihak-pihak tidak bertanggungjawab menyalin dan mengklaim tiket
+                                        pengunjung.</li>
+                                    <li>Pengunjung akan melalui body checking di pintu masuk untuk memastikan pengunjung
+                                        tidak membawa barang-barang berbahaya dan terlarang seperti narkoba, senjata
+                                        tajam, miras, dan lain-lain.</li>
+                                    <li class="page-break">Panitia tidak bertanggungjawab atas kelalaian pembeli tiket
+                                        yang mengakibatkan
+                                        e-tiket/gelang tiket hilang maupun jatuh ke tangan orang lain.</li>
+                                    <li>Panitia tidak bertanggungjawab atas kompensasi dan/atau biaya pembatalan untuk
+                                        biaya perjalanan yang dikeluarkan pengunjung apabila acara ditunda.</li>
+                                    <li>Pembelian tiket On The Spot di area CLOSING UKM EXPO 2022
+                                        hanya dilakukan pada tanggal 25, 26, dan 27 Agustus 2022.</li>
                                 </ul>
                                 <h3 class="font-bold mb-3 text-lg uppercase">Regulasi Pengunjung</h3>
                                 <ul class="list-disc p-4 text-base mb-4">
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
-                                    <li class="page-break">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
+                                    <li>Pengunjung bertanggungjawab untuk keamanan seluruh barang pribadinya</li>
+                                    <li>Pengunjung WAJIB mematuhi protokol kesehatan yang berlaku di seluruh area
+                                        CLOSING UKM EXPO 2022
+                                    </li>
+                                    <li>Pengunjung WAJIB memakai masker selama berada di area CLOSING UKM EXPO 2022</li>
+                                    <li>Sebelum memasuki area CLOSING UKM EXPO 2022, pengunjung WAJIB menscan Peduli
+                                        Lindugi serta sudah memiliki sertifikat vaksinasi minimal 2 (dua) sertifikat
+                                    </li>
+                                    <li>Pengunjung WAJIB menjaga kebersihan selama berada di area CLOSING UKM EXPO 2022
+                                        dan membuang sampah di tempat yang tersedia.</li>
                                 </ul>
                                 <h3 class="font-bold mb-3 text-lg uppercase">Protokol Kesehatan Yang Berlaku
                                 </h3>
                                 <ul class="list-disc p-4 text-base mb-4">
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
+                                    <li>Pengunjung WAJIB memakai masker selama berada di area CLOSING UKM EXPO 2022.
+                                    </li>
+                                    <li>Pengunjung WAJIB melakukan cek suhu sebelum memasuki area CLOSING UKM EXPO 2022.
+                                    </li>
+                                    <li>Pengunjung WAJIB menjaga jarak satu sama lain dan menghindari kontak fisik
+                                        selama berada di area CLOSING UKM EXP</li>
+                                    <li>Pengunjung WAJIB menerapkan etika bersin dan batuk.</li>
+                                    <li class="page-break">
+                                        Pengunjung WAJIB menjaga kebersihan tangan dengan mencuci tangan menggunakan air
+                                        mengalir atau hand sanitizer.
+                                    </li>
+                                    <li>Pengunjung WAJIB mematuhi protokol kesehatan yang berlaku di
+                                        seluruh area
+                                        CLOSING UKM EXPO 2022.
+                                    </li>
                                 </ul>
                                 <h3 class="font-bold mb-3 text-lg uppercase">Prohibited Items</h3>
                                 <ul class="list-disc p-4 text-base mb-4">
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam
-                                        fugiat alias, minus
-                                        nisi, delectus recusandae deleniti quas nostrum perferendis voluptatibus
-                                        exercitationem incidunt
-                                        asperiores eius! Aperiam voluptatem numquam cupiditate harum.</li>
+                                    <li>Dilarang membawa makanan dan/atau minuman dari luar</li>
+                                    <li>Dilarang keras membawa/memakai rokok/vape zat terlarang, dan minuman
+                                        beralkohol/miras.
+                                    </li>
+                                    <li>Dilarang keras membawa senjata api, benda tajam, dan benda mudah terbakar.
+                                    </li>
+                                    <li>
+                                        Setiap item yang berpotensi menyebabkan bahaya dilarang memasuki area CLOSING
+                                        UKM EXPO 2022.
+                                    </li>
                                 </ul>
 
                             </section>
