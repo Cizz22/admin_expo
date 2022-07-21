@@ -261,10 +261,10 @@
         .tg td {
             border-color: rgb(209 213 219 / 1);
             border-style: solid;
-            border-width: 5px;
+            border-width: 2px;
             border-left-width: 0;
-            border-top-width: 8px;
-            border-bottom-width: 8px;
+            border-top-width: 2px;
+            border-bottom-width: 2px;
             font-family: Arial, sans-serif;
             font-size: 14px;
             overflow: auto;
@@ -280,8 +280,8 @@
             border-color: rgb(209 213 219 / var(--tw-bg-opacity));
             border-style: solid;
             border-left-width: 0;
-            border-top-width: 8px;
-            border-bottom-width: 8px;
+            border-top-width: 2px;
+            border-bottom-width: 2px;
             font-family: Arial, sans-serif;
             font-size: 14px;
             font-weight: normal;
@@ -351,7 +351,7 @@
                         <td class="tg-0pky" colspan="8">
                             <div class="row-span-2">
                                 <di class="mx-auto w-100">
-                                    <img src="https://media.istockphoto.com/photos/background-of-galaxy-and-stars-picture-id1035676256?b=1&k=20&m=1035676256&s=170667a&w=0&h=NOtiiFfDhhUhZgQ4wZmHPXxHvt3RFVD-lTmnWCeyIG4="
+                                    <img src="https://admin.tesdeveloper.me/img/gs.png"
                                         class="object-cover" />
                                 </di>
 
@@ -407,7 +407,7 @@
                                 <h2 class="text-center text-orange-500 font-bold text-base mb-8">TERMS &
                                     CONDITION</h2>
                                 <h3 class="font-bold text-lg mb-3 uppercase">Regulasi Tiket</h3>
-                                <ul class="list-disc p-4 text-base mb-4">
+                                <ul class="list-disc text-base mb-4">
                                     <li>Pengunjung yang sudah membeli tiket akan mendapatkan email berupa e-tiket.</li>
                                     <li>Pengunjung WAJIB memiliki 2 kali riwayat vaksinasi dengan menunjukkan scan
                                         Peduli Lindungi.</li>
@@ -438,7 +438,7 @@
                                         hanya dilakukan pada tanggal 25, 26, dan 27 Agustus 2022.</li>
                                 </ul>
                                 <h3 class="font-bold mb-3 text-lg uppercase">Regulasi Pengunjung</h3>
-                                <ul class="list-disc p-4 text-base mb-4">
+                                <ul class="list-disc text-base mb-4">
                                     <li>Pengunjung bertanggungjawab untuk keamanan seluruh barang pribadinya</li>
                                     <li>Pengunjung WAJIB mematuhi protokol kesehatan yang berlaku di seluruh area
                                         CLOSING UKM EXPO 2022
@@ -452,7 +452,7 @@
                                 </ul>
                                 <h3 class="font-bold mb-3 text-lg uppercase">Protokol Kesehatan Yang Berlaku
                                 </h3>
-                                <ul class="list-disc p-4 text-base mb-4">
+                                <ul class="list-disc text-base mb-4">
                                     <li>Pengunjung WAJIB memakai masker selama berada di area CLOSING UKM EXPO 2022.
                                     </li>
                                     <li>Pengunjung WAJIB melakukan cek suhu sebelum memasuki area CLOSING UKM EXPO 2022.
@@ -470,7 +470,7 @@
                                     </li>
                                 </ul>
                                 <h3 class="font-bold mb-3 text-lg uppercase">Prohibited Items</h3>
-                                <ul class="list-disc p-4 text-base mb-4">
+                                <ul class="list-disc text-base mb-4">
                                     <li>Dilarang membawa makanan dan/atau minuman dari luar</li>
                                     <li>Dilarang keras membawa/memakai rokok/vape zat terlarang, dan minuman
                                         beralkohol/miras.
