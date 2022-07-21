@@ -6,8 +6,8 @@
     </div>
     <hr/>
     <div class="px-4 mt-4">
-        <a href="https://server.tesdeveloper.me/{{$payment}}" target="_blank">
-            <img src="https://server.tesdeveloper.me/{{$payment}}" class="w-100 object-cover" alt="">
+        <a href="{{asset($payment)}}" target="_blank">
+            <img src="{{asset($payment)}}" class="w-100 object-cover" alt="">
         </a>
 
     </div>
