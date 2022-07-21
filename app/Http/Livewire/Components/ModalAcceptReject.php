@@ -38,6 +38,10 @@ class ModalAcceptReject extends ModalComponent
     {
         if($this->booking->booking_status) return $this->closeModal();
         $this->totalTicket = Ticket::count();
+        $this->booking->update([
+            "booking_status" => true
+        ]);
+
         $tickets = [];
 
         for ($i = 1; $i <= $this->total; $i++) {
@@ -64,9 +68,6 @@ class ModalAcceptReject extends ModalComponent
         }
 
         Ticket::insert($tickets);
-        $this->booking->update([
-            "booking_status" => true
-        ]);
 
 
         Mail::to($this->booking->email)->send(new TicketMail($this->booking->name, $tickets));
