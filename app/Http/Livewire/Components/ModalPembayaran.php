@@ -9,7 +9,7 @@ class ModalPembayaran extends ModalComponent
 {
     public $payment;
     public $booking_id;
-    public $total_ticket;
+    public $ticket_total;
 
     public function render()
     {
@@ -19,6 +19,6 @@ class ModalPembayaran extends ModalComponent
     public function mount($payment, $id, $total){
         $this->payment = $payment;
         $this->booking_id = $id;
-        $this->total_ticket = $total;
+        $this->ticket_total = $total;
     }
 }

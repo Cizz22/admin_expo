@@ -365,10 +365,11 @@
                     <tr>
                         <td class="tg-0pky" colspan="4">
                             <div class="row-span-2">
-                                <img src="{{$logo}}"
-                                    class="object-cover" />
-                                    <small class="mx-auto">Multiverse of Interest: Fire It On!
-                                    </small>
+                                <img src="https://admin.tesdeveloper.me/img/logo.png"
+                                    class="object-cover"
+                                    width="80%"
+                                    height="80%"
+                                    />
                             </div>
                         </td>
                         <td class="tg-0pky" colspan="4">

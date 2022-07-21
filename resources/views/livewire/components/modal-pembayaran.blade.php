@@ -15,12 +15,12 @@
 
     <div class="flex flex-row justify-end">
         <button
-        onclick="Livewire.emit('openModal', 'components.modal-reject',{{json_encode(['id' => $booking_id])}})"
+        onclick="Livewire.emit('openModal', 'components.modal-reject',{{json_encode(['id' => $booking_id, 'total' => $ticket_total])}})"
             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mr-2" title="Tolak">
             Tolak
         </button>
         <button
-        onclick="Livewire.emit('openModal', 'components.modal-accept-reject',{{json_encode(['id' => $booking_id])}})"
+        onclick="Livewire.emit('openModal', 'components.modal-accept-reject',{{json_encode(['id' => $booking_id, 'total' => $ticket_total])}})"
             class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" title="Terima">
             Terima
         </button>

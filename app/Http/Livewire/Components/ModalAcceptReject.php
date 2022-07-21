@@ -46,7 +46,6 @@ class ModalAcceptReject extends ModalComponent
 
             $pdf = Pdf::loadView('vendor.pdf', compact(['uniqueId', 'barcode', 'password', 'name', 'i', 'total', 'logo']))->save("storage/tickets/$filename");
 
-            dd('debau');
             array_push($tickets, "/storage/tickets/$filename");
             $collect->push([
                 "uniqueId" => $uniqueId,
