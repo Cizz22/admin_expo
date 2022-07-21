@@ -74,6 +74,7 @@ function display_help {
     echo "  ${GREEN}sail mariadb${NC}   Start a MySQL CLI session within the 'mariadb' container"
     echo "  ${GREEN}sail psql${NC}      Start a PostgreSQL CLI session within the 'pgsql' container"
     echo "  ${GREEN}sail redis${NC}     Start a Redis CLI session within the 'redis' container"
+    echo "  ${GREEN}sail mongodb${NC}     Start a Redis CLI session within the 'mongodb' container"
     echo
     echo "${YELLOW}Debugging:${NC}"
     echo "  ${GREEN}sail debug ...${NC}          Run an Artisan command in debug mode"
