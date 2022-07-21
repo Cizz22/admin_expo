@@ -341,7 +341,7 @@
                         <td class="tg-0pky" colspan="8">
                             <section>
                                 <div class="bg-white p-4">
-                                    <h1 class="font-bold text-xl">TICKET TYPE: Prelase 1 (HET Rp. 30.000,-)</h1>
+                                    <h1 class="font-bold text-xl">TICKET TYPE: Presale 1 (Rp. 30.000,-)</h1>
                                     <h1 class="font-bold text-xl">UKM EXPO 2022</h1>
                                 </div>
                             </section>
@@ -404,7 +404,7 @@
                     <tr>
                         <td class="tg-0pky" colspan="8" rowspan="2" style="border-right-width: 0!important">
                             <section class="bg-white p-12">
-                                <h2 class="text-center text-orange-500 font-bold text-base mb-8">TERMS &
+                                <h2 class="text-center font-bold text-base mb-8">TERMS &
                                     CONDITION</h2>
                                 <h3 class="font-bold text-lg mb-3 uppercase">Regulasi Tiket</h3>
                                 <ul class="list-disc text-base mb-4">
