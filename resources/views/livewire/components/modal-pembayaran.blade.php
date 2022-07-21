@@ -6,8 +6,8 @@
     </div>
     <hr/>
     <div class="px-4 mt-4">
-        <a href="{{asset($payment)}}" target="_blank">
-            <img src="{{asset($payment)}}" class="w-100 object-cover" alt="">
+        <a href="{{asset("storage/$payment")}}" target="_blank">
+            <img src="{{asset("storage/$payment")}}" class="w-100 object-cover" alt="">
         </a>
 
     </div>
