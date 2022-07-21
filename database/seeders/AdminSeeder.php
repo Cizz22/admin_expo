@@ -27,17 +27,17 @@ class AdminSeeder extends Seeder
                 [
                     'name'      => 'Admin 2',
                     'email'     => 'admin2@gmail.com',
-                    'password'  => Hash::make('passwordAdmin1'),
+                    'password'  => Hash::make('passwordAdmin2'),
                 ],
                 [
                     'name'      => 'Admin 3',
                     'email'     => 'admin3@gmail.com',
-                    'password'  => Hash::make('passwordAdmin1'),
+                    'password'  => Hash::make('passwordAdmin3'),
                 ],
                 [
                     'name'      => 'Admin4',
                     'email'     => 'admin4@gmail.com',
-                    'password'  => Hash::make('passwordAdmin1'),
+                    'password'  => Hash::make('passwordAdmin4'),
                 ],
             ]
 
