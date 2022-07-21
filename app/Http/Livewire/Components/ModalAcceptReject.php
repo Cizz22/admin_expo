@@ -54,7 +54,7 @@ class ModalAcceptReject extends ModalComponent
             ]);
         }
 
-        Http::post("localhost:3000/v1/ticketing/verification", [
+        Http::post("https://server.tesdeveloper.me/v1/ticketing/verification", [
             "booking_id" => $this->booking['id'],
             "status" => "accept",
             "ticket_data" => $collect->toArray(),
