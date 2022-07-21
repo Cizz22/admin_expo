@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Booking;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -18,10 +19,10 @@ class TicketMail extends Mailable
      *
      * @return void
      */
-    public function __construct($nama, $tickets)
+    public function __construct($nama, $ticket)
     {
         $this->nama = $nama;
-        $this->tickets = $tickets;
+        $this->tickets = $ticket;
     }
 
     /**
@@ -32,8 +33,9 @@ class TicketMail extends Mailable
     public function build()
     {
         $this->view('vendor.mail.ticket-email', ['name' => $this->nama])->subject("Tiket UKM Expo 2022!");
+
         foreach($this->tickets as $ticket){
-            $this->attach(public_path() . '/' . $ticket);
+            $this->attach(public_path() . '/' . $ticket['ticket_file']);
         }
 
         return $this;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Booking;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Support\Carbon;
@@ -19,16 +20,11 @@ use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 final class BookingTable extends PowerGridComponent
 {
     use ActionButton;
-    protected $sourceData;
+
 
     function __construct()
     {
-        $datas = Http::get('https://server.tesdeveloper.me/v1/ticketing')->json()['data'];
-        $this->sourceData = collect();
 
-        foreach ($datas as $data) {
-            $this->sourceData->push($data);
-        }
     }
 
     /*
@@ -40,7 +36,7 @@ final class BookingTable extends PowerGridComponent
     */
     public function datasource(): ?Collection
     {
-        return $this->sourceData;
+        return Booking::all();
     }
 
     /*

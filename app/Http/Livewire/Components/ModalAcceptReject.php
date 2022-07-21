@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Components;
 
 use App\Mail\TicketMail;
+use App\Models\Booking;
+use App\Models\Ticket;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
@@ -16,6 +18,8 @@ class ModalAcceptReject extends ModalComponent
     protected $totalTicket;
     public $total;
     public $booking_id;
+    public $email;
+    protected $listeners = ['refreshComponent' => '$refresh'];
 
     public function render()
     {
@@ -24,48 +28,51 @@ class ModalAcceptReject extends ModalComponent
 
     public function mount($id, $total)
     {
-
-        $this->booking = Http::get("https://server.tesdeveloper.me/v1/ticketing/getTicketbyId/$id")->json()['data'];
+        $this->booking_id = $id;
         $this->total = $total;
+        $this->booking = Booking::find($this->booking_id);
+        $this->totalTicket = Ticket::count();
     }
 
     public function submit()
     {
-        $this->totalTicket = Http::get('https://server.tesdeveloper.me/v1/ticketing/total')->json()['data'];
-        $collect = collect();
+        if($this->booking->booking_status) return $this->closeModal();
+
         $tickets = [];
 
         for ($i = 1; $i <= $this->total; $i++) {
             $uniqueId = $this->makeid($this->totalTicket + $i);
             $barcode = "https://bwipjs-api.metafloor.com/?bcid=code128&text=$uniqueId&scale=3";
             $password = substr(str_shuffle(str_repeat($x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(5 / strlen($x)))), 1, 5);
-            $name = $this->booking['name'];
+            $name = $this->booking->name;
             $filename = $uniqueId . '_' . $name . '.pdf';
             $total = $this->total;
             $logo = asset('img/logo.png');
-            $ticket_type = $this->booking['ticket_type'];
+            $ticket_type = $this->booking->ticket_type;
 
             $pdf = Pdf::loadView('vendor.pdf', compact(['uniqueId', 'barcode', 'password', 'name', 'i', 'total', 'ticket_type']))->save("storage/tickets/$filename");
 
-            array_push($tickets, "/storage/tickets/$filename");
-            $collect->push([
+            array_push($tickets, [
                 "uniqueId" => $uniqueId,
                 "barcode" => $barcode,
                 "password" => $password,
-                "booking" => $this->booking['id'],
-                "ticket_file" => "/storage/tickets/$filename"
+                "booking" => $this->booking->id,
+                "ticket_file" => "/storage/tickets/$filename",
+                "status" => "BELUM_DIAMBIL",
             ]);
+
         }
 
+        Ticket::insert($tickets);
+        $this->booking->update([
+            "booking_status" => true
+        ]);
 
-        $res = Http::post("https://server.tesdeveloper.me/v1/ticketing/verification", [
-            "booking_id" => $this->booking['id'],
-            "status" => "accept",
-            "ticket_data" => $collect->toArray(),
-        ])->json();
 
-        if($res['success']) Mail::to($this->booking['email'])->send(new TicketMail($this->booking['name'], $tickets));
+        Mail::to($this->booking->email)->send(new TicketMail($this->booking->name, $tickets));
 
+
+        $this->emit('refreshComponent');
         $this->closeModal();
     }
 

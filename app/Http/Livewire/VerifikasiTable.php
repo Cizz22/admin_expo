@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Booking;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
@@ -19,7 +20,6 @@ final class VerifikasiTable extends PowerGridComponent
 {
     use ActionButton;
 
-    protected $sourceData;
 
     /*
     |--------------------------------------------------------------------------
@@ -30,13 +30,7 @@ final class VerifikasiTable extends PowerGridComponent
     */
     public function datasource(): ?Collection
     {
-        $datas = Http::get('https://server.tesdeveloper.me/v1/ticketing/verification/bookingfalse')->json()['data'];
-        $sourceData = collect();
-
-        foreach ($datas as $data) {
-            $sourceData->push($data);
-        }
-        return $sourceData;
+        return Booking::where('booking_status', false)->get();
     }
 
     /*
