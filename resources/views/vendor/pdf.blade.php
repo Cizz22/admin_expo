@@ -304,10 +304,6 @@
             background-color: rgb(226 232 240 / var(--tw-bg-opacity));
         }
 
-        li {
-            align-content: stretch !important;
-            margin-bottom: 5px;
-        }
 
 
 
@@ -464,11 +460,11 @@
                                     <li>Pengunjung WAJIB menjaga jarak satu sama lain dan menghindari kontak fisik
                                         selama berada di area CLOSING UKM EXP</li>
                                     <li>Pengunjung WAJIB menerapkan etika bersin dan batuk.</li>
-                                    <li class="page-break">
+                                    <li >
                                         Pengunjung WAJIB menjaga kebersihan tangan dengan mencuci tangan menggunakan air
                                         mengalir atau hand sanitizer.
                                     </li>
-                                    <li>Pengunjung WAJIB mematuhi protokol kesehatan yang berlaku di
+                                    <li class="page-break" >Pengunjung WAJIB mematuhi protokol kesehatan yang berlaku di
                                         seluruh area
                                         CLOSING UKM EXPO 2022.
                                     </li>
