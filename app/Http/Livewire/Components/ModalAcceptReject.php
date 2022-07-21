@@ -31,13 +31,13 @@ class ModalAcceptReject extends ModalComponent
         $this->booking_id = $id;
         $this->total = $total;
         $this->booking = Booking::find($this->booking_id);
-        $this->totalTicket = Ticket::count();
+
     }
 
     public function submit()
     {
         if($this->booking->booking_status) return $this->closeModal();
-
+        $this->totalTicket = Ticket::count();
         $tickets = [];
 
         for ($i = 1; $i <= $this->total; $i++) {
