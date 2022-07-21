@@ -31,7 +31,7 @@ class ModalAcceptReject extends ModalComponent
 
     public function submit()
     {
-        $this->totalTicket = Http::get('localhost:3000/v1/ticketing/total')->json()['data'];
+        $this->totalTicket = Http::get('https://server.tesdeveloper.me/v1/ticketing/total')->json()['data'];
         $collect = collect();
         $tickets = [];
 
