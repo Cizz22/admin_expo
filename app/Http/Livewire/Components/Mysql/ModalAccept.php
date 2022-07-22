@@ -2,13 +2,18 @@
 
 namespace App\Http\Livewire\Components\Mysql;
 
+ini_set('max_execution_time', 300);
+
 use App\Mail\TicketMail;
 use App\Models\Mysql\Booking;
 use App\Models\Mysql\Ticket as MysqlTicket;
 use App\Models\Ticket;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
@@ -28,6 +33,7 @@ class ModalAccept extends ModalComponent
     }
     public function submit()
     {
+    DB::transaction(function () {
         if ($this->booking->booking_status == "Terverifikasi") return $this->closeModal();
 
         $totalTicketP1 = Ticket::count();
@@ -61,14 +67,11 @@ class ModalAccept extends ModalComponent
                 "status" => "BELUM_DIAMBIL",
             ]);
         }
+    });
 
-
-        $this->message = "Mengirim Tiket";
         Mail::to($this->booking->email)->send(new TicketMail($this->booking->name, $this->booking->ticket));
 
-        $this->emit('refreshComponent');
-        $this->message = "";
-        $this->closeModal();
+        return Redirect::back();
     }
 
     public function makeid($ticketCount)

@@ -3,8 +3,9 @@
 namespace App\Http\Livewire\Components\Mysql;
 
 use Livewire\Component;
+use LivewireUI\Modal\ModalComponent;
 
-class ModalReject extends Component
+class ModalReject extends ModalComponent
 {
     public function render()
     {
