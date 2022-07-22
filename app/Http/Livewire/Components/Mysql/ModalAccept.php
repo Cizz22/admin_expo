@@ -79,7 +79,7 @@ class ModalAccept extends ModalComponent
         }
 
         $this->closeModal();
-        return Redirect::back();
+        header("Refresh:0");
     }
 
     public function makeid($ticketCount)
