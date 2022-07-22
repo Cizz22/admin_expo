@@ -34,14 +34,15 @@ class ModalAccept extends ModalComponent
     public function submit()
     {
     DB::transaction(function () {
-        if ($this->booking->booking_status == "Terverifikasi") return $this->closeModal();
+        if ($this->booking->is_process) return $this->closeModal();
+
+        $this->booking->update([
+            "is_process" => true
+        ]);
 
         $totalTicketP1 = Ticket::count();
         $totalTicket = MysqlTicket::get()->count() + $totalTicketP1;
 
-        $this->booking->update([
-            "booking_status" => "Terverifikasi"
-        ]);
 
         for ($i = 1; $i <= $this->booking->ticket_total; $i++) {
             $uniqueId = $this->makeid($totalTicket + $i);
@@ -77,6 +78,10 @@ class ModalAccept extends ModalComponent
         }else{
             Mail::to($this->booking->email)->send(new TicketMail($this->booking->name, $this->booking->ticket));
         }
+
+        $this->booking->update([
+            "booking_status" => "Terverifikasi"
+        ]);
 
         $this->closeModal();
         header("Refresh:0");
