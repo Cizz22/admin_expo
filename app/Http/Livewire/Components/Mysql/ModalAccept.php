@@ -68,8 +68,16 @@ class ModalAccept extends ModalComponent
             ]);
         }
     });
+        if($this->booking->ticket_total > 4){
+            $tickets = $this->booking->ticket;
+            $queue1 = $tickets->shift(4);
 
-        Mail::to($this->booking->email)->send(new TicketMail($this->booking->name, $this->booking->ticket));
+            Mail::to($this->booking->email)->send(new TicketMail($this->booking->name, $queue1));
+            Mail::to($this->booking->email)->send(new TicketMail($this->booking->name, $tickets));
+        }else{
+            Mail::to($this->booking->email)->send(new TicketMail($this->booking->name, $this->booking->ticket));
+        }
+
 
         return Redirect::back();
     }
