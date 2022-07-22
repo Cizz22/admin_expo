@@ -44,7 +44,7 @@ class ModalAccept extends ModalComponent
         ]);
 
         for ($i = 1; $i <= $this->booking->ticket_total; $i++) {
-            $uniqueId = $this->makeid($total + $i);
+            $uniqueId = $this->makeid($total);
             $barcode = "https://bwipjs-api.metafloor.com/?bcid=code128&text=$uniqueId&scale=3";
             $password = substr(str_shuffle(str_repeat($x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(5 / strlen($x)))), 1, 5);
             $name = $this->booking->name;
@@ -66,6 +66,7 @@ class ModalAccept extends ModalComponent
                 "ticket_file" => "/storage/tickets/$filename",
                 "status" => "BELUM_DIAMBIL",
             ]);
+            $total++;
         }
     });
         if($this->booking->ticket_total > 4){
@@ -84,6 +85,7 @@ class ModalAccept extends ModalComponent
 
     public function makeid($ticketCount)
     {
+        $ticketCount += 1;
         $middle = date('YmdHis');
         $last = $ticketCount >= 0 && $ticketCount < 9 ? "000$ticketCount" : ($ticketCount >= 10 && $ticketCount < 99 ? "00$ticketCount" : ($ticketCount >= 100 && $ticketCount < 999 ? "0$ticketCount" : $ticketCount));
 
