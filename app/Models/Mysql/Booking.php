@@ -9,7 +9,7 @@ class Booking extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','email','whatsapp','payment_proof','payment_no','payment_method','ticket_total','ticket_type','booking_status','payment_total'];
+    protected $fillable = ['name','email','whatsapp','payment_proof','payment_no','payment_method','ticket_total','ticket_type','booking_status','payment_total', 'is_process'];
 
     public function ticket(){
         return $this->hasMany(Ticket::class);
