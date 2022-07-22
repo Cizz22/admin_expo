@@ -112,7 +112,7 @@
                     <tr>
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
                         <p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><b>Hai {{$name}}</b></p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Terimakasih telah melakukan pemesanan tiket <b>UKM Expo 2022</b>. Admin telah berhasil memverifikasi pembayaran tiket Anda, berikut kami lampirkan dokumen tiket sesuai dengan jumalh pemesanan. Apabila terdapat ketidak sesuai data atau jumlah tiket, silahkan menghubungi WA center UKM Expo.</p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Terimakasih telah melakukan pemesanan tiket <b>UKM Expo 2022</b>. Admin telah berhasil memverifikasi pembayaran tiket Anda, berikut kami lampirkan dokumen tiket sesuai dengan jumlah pemesanan. Apabila terdapat ketidaksesuai data atau jumlah tiket, silahkan menghubungi WA center UKM Expo.</p>
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Informasi Lebih Lanjut Melalui Sosial Media UKM Expo 2022: :
                         <br/>
                           Instagram :  <a href="https://www.instagram.com/ukmexpo_its/">@ukmexpo_its</a><br/>
