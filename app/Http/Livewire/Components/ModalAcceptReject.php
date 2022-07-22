@@ -84,7 +84,7 @@ class ModalAcceptReject extends ModalComponent
     public function makeid($ticketCount)
     {
         $middle = date('YmdHis');
-        $last = $ticketCount >= 0 && $ticketCount < 9 ? "000$ticketCount" : ($ticketCount >= 10 && $ticketCount < 99 ? "00$ticketCount" : ($ticketCount >= 100 && $ticketCount < 999 ? "0$$ticketCount" : $ticketCount));
+        $last = $ticketCount >= 0 && $ticketCount < 9 ? "000$ticketCount" : ($ticketCount >= 10 && $ticketCount < 99 ? "00$ticketCount" : ($ticketCount >= 100 && $ticketCount < 999 ? "0$ticketCount" : $ticketCount));
         $unique = "743$middle";
 
         return "$unique$last";
