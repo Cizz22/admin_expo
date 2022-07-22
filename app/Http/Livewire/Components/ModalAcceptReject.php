@@ -38,8 +38,6 @@ class ModalAcceptReject extends ModalComponent
 
     public function submit()
     {
-        $dt = Carbon::createFromFormat('Y-m-d', $this->booking->booking_time, 'Asia/Jakarta');
-        dd($dt);
         if($this->booking->booking_status) return $this->closeModal();
         $this->totalTicket = Ticket::count();
         $this->booking->update([
