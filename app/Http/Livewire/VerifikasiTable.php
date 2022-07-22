@@ -20,6 +20,7 @@ final class VerifikasiTable extends PowerGridComponent
 {
     use ActionButton;
 
+    protected $listeners = ['refreshComponent' => '$refresh'];
 
     /*
     |--------------------------------------------------------------------------

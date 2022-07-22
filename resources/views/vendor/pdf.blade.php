@@ -396,7 +396,7 @@
                                     <p>{{ $password }}</p>
                                     <p>{{ $name }}</p>
                                 </div>
-                                <p>Ordered on </p>
+                                <p>Ordered on 2022-07-20</p>
                                 <p>Ref: Online</p>
                             </div>
                         </td>

@@ -6,6 +6,8 @@ use App\Mail\TicketMail;
 use App\Models\Booking;
 use App\Models\Ticket;
 use Carbon\Carbon;
+use DateTime;
+use DateTimeZone;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
@@ -19,7 +21,7 @@ class ModalAcceptReject extends ModalComponent
     public $total;
     public $booking_id;
     public $email;
-    protected $listeners = ['refreshComponent' => '$refresh'];
+
 
     public function render()
     {
@@ -36,6 +38,8 @@ class ModalAcceptReject extends ModalComponent
 
     public function submit()
     {
+        $dt = Carbon::createFromFormat('Y-m-d', $this->booking->booking_time, 'Asia/Jakarta');
+        dd($dt);
         if($this->booking->booking_status) return $this->closeModal();
         $this->totalTicket = Ticket::count();
         $this->booking->update([
@@ -53,6 +57,8 @@ class ModalAcceptReject extends ModalComponent
             $total = $this->total;
             $logo = asset('img/logo.png');
             $ticket_type = $this->booking->ticket_type;
+
+
 
             $pdf = Pdf::loadView('vendor.pdf', compact(['uniqueId', 'barcode', 'password', 'name', 'i', 'total', 'ticket_type']))->save("storage/tickets/$filename");
 
