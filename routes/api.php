@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\TicketingController;
 use App\Mail\RegisterMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('ticketing', TicketingController::class);
 
 
 Route::post('registerApi', function(Request $request){

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\Mysql\BookingController as MysqlBookingController;
+use App\Http\Controllers\Mysql\VerifikasiController as MysqlVerifikasiController;
 use App\Http\Controllers\VerifikasiController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +27,8 @@ Route::get('/', function() {
 });
 
 Route::get('/daftar-pembeli' ,[BookingController::class, 'index'])->name('pembeli');
+Route::get('/daftar-pembeli/2' ,[MysqlBookingController::class, 'index'])->name('pembeli-2');
 Route::get('/verifikasi' ,[VerifikasiController::class, 'index'])->name('verifikasi');
+Route::get('/verifikasi/2' ,[MysqlVerifikasiController::class, 'index'])->name('verifikasi-2');
 
 require __DIR__.'/auth.php';

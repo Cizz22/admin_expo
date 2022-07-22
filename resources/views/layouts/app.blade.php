@@ -72,7 +72,7 @@
 
             <hr>
 
-            <nav class="mt-5">
+            <nav class="mt-5" x-data="{ dropdownverif: false, dropdowndaftar:false }">
                 <a class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 {{ Request::is('admin/dashboard*') ? ' bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}"
                     href="">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -85,9 +85,7 @@
                     <span class="mx-3">Dashboard</span>
                 </a>
 
-
-                <a class="flex items-center mt-4 py-2 px-6 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Request::is('verifikasi') ? ' bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}"
-                    href="{{ route('verifikasi') }}">
+                <button type="button" @click="dropdownverif = ! dropdownverif" class="flex items-center mt-4 py-2 px-6 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Request::is('verifikasi') ? ' bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -96,19 +94,42 @@
                     </svg>
 
                     <span class="mx-3">Verifikasi</span>
-                </a>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              </button>
+                      <ul x-show="dropdownverif" class="py-2 space-y-2">
+                          <li>
+                              <a href="{{ route('verifikasi') }}"
+                                  class="flex justify-between ml-4 items-center w-full p-2 text-base font-normal text-white transition duration-75 rounded-lg group hover:bg-gray-100 hover:text-black  dark:hover:bg-gray-700 pl-11">Presale 1</a>
+                          </li>
+                          <li>
+                              <a href="{{route('verifikasi-2')}}"
+                                  class="flex justify-between ml-4 items-center w-full p-2 text-base font-normal text-white transition duration-75 rounded-lg group hover:bg-gray-100 hover:text-black  dark:hover:bg-gray-700 pl-11">Presale 2 & 3</a>
+                          </li>
 
-                <a class="flex items-center mt-4 py-2 px-6 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Request::is('daftar-pembeli') ? ' bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}"
-                    href="{{ route('pembeli') }}">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      </ul>
+
+                      <button type="button" @click="dropdowndaftar = ! dropdowndaftar" class="flex items-center mt-4 py-2 px-6 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Request::is('verifikasi') ? ' bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
                         </path>
                     </svg>
 
-                    <span class="mx-3">Daftar Pembeli</span>
-                </a>
+                        <span class="mx-3">Daftar Pembeli</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+                          <ul x-show="dropdowndaftar" class="py-2 space-y-2">
+                              <li>
+                                  <a href="{{ route('pembeli') }}"
+                                      class="flex justify-between ml-4 items-center w-full p-2 text-base font-normal text-white transition duration-75 rounded-lg group hover:bg-gray-100 hover:text-black  dark:hover:bg-gray-700 pl-11">Presale 1</a>
+                              </li>
+                              <li>
+                                  <a href="{{route('pembeli-2')}}"
+                                      class="flex justify-between ml-4 items-center w-full p-2 text-base font-normal text-white transition duration-75 rounded-lg group hover:bg-gray-100 hover:text-black  dark:hover:bg-gray-700 pl-11">Presale 2 & 3</a>
+                              </li>
+
+                          </ul>
 
 
             </nav>
@@ -124,7 +145,7 @@
                     </button>
                 </div>
                 <div class="flex-1 px-5 items-center">
-                    <span class="text-2xl font-bold text-gray-900">Dashboard</span>
+                    <span class="text-2xl font-bold text-white">Dashboard</span>
                 </div>
 
                 <div class="flex items-center">
@@ -132,7 +153,7 @@
                     <div x-data="{ dropdownOpen: false }" class="relative">
                         <button @click="dropdownOpen = ! dropdownOpen"
                             class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
-                            <img class="h-full w-full object-cover" src="{{ auth()->user()->avatar }}">
+                            <<svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"/></svg>
                         </button>
 
                         <div x-show="dropdownOpen" @click="dropdownOpen = false"
