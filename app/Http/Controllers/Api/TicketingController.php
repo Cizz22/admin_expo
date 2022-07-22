@@ -82,7 +82,7 @@ class TicketingController extends Controller
                     'payment_proof' => 'uploads/' . $name,
                     'name' => $request->name,
                     'email' => $request->email,
-                    'whatsapp' => $request->email,
+                    'whatsapp' => $request->whatsapp,
                     'payment_no' => $request->payment_no,
                     'payment_method' => $request->payment_method,
                     'ticket_total' => $request->ticket_total,

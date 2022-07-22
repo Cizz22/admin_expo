@@ -341,7 +341,7 @@
                         <td class="tg-0pky" colspan="8">
                             <section>
                                 <div class="bg-white p-4">
-                                    <h1 class="font-bold text-xl">TICKET TYPE: {{$ticket_type}} (Rp. 30.000,-)</h1>
+                                    <h1 class="font-bold text-xl">TICKET TYPE: {{$ticket_type}} (Rp. {{$ticket_type == "Presale 1" ? "30.000" : "40.000"}},-)</h1>
                                     <h1 class="font-bold text-xl">UKM EXPO 2022</h1>
                                 </div>
                             </section>
@@ -396,7 +396,7 @@
                                     <p>{{ $password }}</p>
                                     <p>{{ $name }}</p>
                                 </div>
-                                <p>Ordered on 2022-07-20</p>
+                                <p>Ordered on {{$ticket_type == "Presale 1" ? "2022-07-20" : $date}}</p>
                                 <p>Ref: Online</p>
                             </div>
                         </td>
