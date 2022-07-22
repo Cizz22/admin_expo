@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('ticket_type');
             $table->enum('booking_status', ['Terverifikasi', 'Belum Terverifikasi'])->default('Belum Terverifikasi');
             $table->string('payment_total');
+            $table->boolean("is_process")->default(false);
             $table->timestamps();
         });
     }

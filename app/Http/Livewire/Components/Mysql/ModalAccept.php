@@ -78,7 +78,7 @@ class ModalAccept extends ModalComponent
             Mail::to($this->booking->email)->send(new TicketMail($this->booking->name, $this->booking->ticket));
         }
 
-
+        $this->closeModal();
         return Redirect::back();
     }
 
