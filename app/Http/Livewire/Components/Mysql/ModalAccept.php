@@ -37,15 +37,14 @@ class ModalAccept extends ModalComponent
         if ($this->booking->booking_status == "Terverifikasi") return $this->closeModal();
 
         $totalTicketP1 = Ticket::count();
-        $total = MysqlTicket::get()->count() + $totalTicketP1;
+        $totalTicket = MysqlTicket::get()->count() + $totalTicketP1;
 
         $this->booking->update([
             "booking_status" => "Terverifikasi"
         ]);
 
         for ($i = 1; $i <= $this->booking->ticket_total; $i++) {
-            $total += $i;
-            $uniqueId = $this->makeid($total);
+            $uniqueId = $this->makeid($totalTicket + $i);
             $barcode = "https://bwipjs-api.metafloor.com/?bcid=code128&text=$uniqueId&scale=3";
             $password = substr(str_shuffle(str_repeat($x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(5 / strlen($x)))), 1, 5);
             $name = $this->booking->name;
