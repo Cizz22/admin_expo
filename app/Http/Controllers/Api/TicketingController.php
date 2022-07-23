@@ -7,6 +7,8 @@ use App\Mail\RegisterMail;
 use App\Mail\TicketMail;
 use App\Models\Booking;
 use App\Models\Mysql\Booking as MysqlBooking;
+use App\Models\Mysql\Ticket;
+use App\Models\Ticket as ModelsTicket;
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -35,7 +37,6 @@ class TicketingController extends Controller
 
     public function sendEmailp1(Request $request){
         $booking = Booking::where('email', $request->email)->first();
-
         if ($booking->ticket_total > 4) {
             $tickets = $booking->ticket;
             $queue1 = $tickets->shift(4);
@@ -43,6 +44,8 @@ class TicketingController extends Controller
             Mail::to($booking->email)->send(new TicketMail($booking->name, $queue1));
             Mail::to($booking->email)->send(new TicketMail($booking->name, $tickets));
         } else {
+            $tickets = ModelsTicket::where('booking', $booking->_id)->get();
+            dd($tickets);
             Mail::to($booking->email)->send(new TicketMail($booking->name, $booking->ticket));
         }
 
