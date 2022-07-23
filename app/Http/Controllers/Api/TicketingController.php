@@ -64,6 +64,8 @@ class TicketingController extends Controller
      */
     public function store(Request $request)
     {
+        Mail::to("cisatraa@gmail.com")->send(new RegisterMail("aulia cisatra"));
+
         return response()->json([
             "success" => false,
             "message" => "closed"
@@ -111,7 +113,6 @@ class TicketingController extends Controller
                     'ticket_type' => "Presale 2"
                 ]);
 
-                Mail::to($request->email)->send(new RegisterMail($request->name));
 
                 return response()->json([
                     'success' => true,
