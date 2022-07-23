@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Mail\RegisterMail;
+use App\Mail\TicketMail;
 use App\Models\Booking;
 use App\Models\Mysql\Booking as MysqlBooking;
 use Carbon\Carbon;
@@ -32,13 +33,24 @@ class TicketingController extends Controller
         ], 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function sendEmailp1(Request $request){
+        $booking = Booking::where('email', $request->email)->first();
+
+        if ($booking->ticket_total > 4) {
+            $tickets = $booking->ticket;
+            $queue1 = $tickets->shift(4);
+
+            Mail::to($booking->email)->send(new TicketMail($booking->name, $queue1));
+            Mail::to($booking->email)->send(new TicketMail($booking->name, $tickets));
+        } else {
+            Mail::to($booking->email)->send(new TicketMail($booking->name, $booking->ticket));
+        }
+
+        response()->json([
+            "success"=>true,
+        ],200);
+
+
     }
 
     /**

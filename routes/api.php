@@ -34,3 +34,5 @@ Route::post('registerApi', function(Request $request){
         'success' => true,
     ]);
 });
+
+Route::post("/sendEmail",[TicketingController::class, 'sendEmailp1']);
