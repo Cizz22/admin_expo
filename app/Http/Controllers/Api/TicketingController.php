@@ -64,6 +64,11 @@ class TicketingController extends Controller
      */
     public function store(Request $request)
     {
+        return response()->json([
+            "success" => false,
+            "message" => "closed"
+        ]);
+
         $validator = Validator::make($request->all(), [
             'payment_proof' => 'required|mimes:png,jpg,jpeg|max:2048',
             'name' => 'required',
