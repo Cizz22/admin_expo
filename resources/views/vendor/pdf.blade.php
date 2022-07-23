@@ -491,16 +491,16 @@
                     <tr>
                         <td class="tg-0pky" colspan="4">
                             <div class="bg-white p-4 text-center">
-                                <a href="https://ukmexpoits.com/"
-                                    class="font-bold hover:underline text-blue-500 text-base">www.ukmexpoits.com</a>
+                                <a href="https://www.ukmexpo-its.com/"
+                                    class="font-bold hover:underline text-blue-500 text-base">https://www.ukmexpo-its.com/</a>
                             </div>
                         </td>
                         <td class="tg-0pky" style="border-right-width: 0!important" colspan="4">
                             <div class="bg-white p-4 text-center flex justify-center">
-                                <a href="tel:6281234567890"
+                                <a href="tel:62 821-4371-9390"
                                     class="font-bold hover:underline text-blue-500 text-base flex"><img
                                         src="https://img.icons8.com/ios-glyphs/30/000000/phone--v1.png"
-                                        class="pr-4" />+62-812-3456-7890</a>
+                                        class="pr-4" />+62 821-4371-9390</a>
                             </div>
                         </td>
                     </tr>
