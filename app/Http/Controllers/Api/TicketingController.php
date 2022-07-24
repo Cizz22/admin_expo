@@ -64,12 +64,6 @@ class TicketingController extends Controller
      */
     public function store(Request $request)
     {
-        Mail::to("cisatraa@gmail.com")->send(new RegisterMail("aulia cisatra"));
-
-        return response()->json([
-            "success" => false,
-            "message" => "closed"
-        ]);
 
         $validator = Validator::make($request->all(), [
             'payment_proof' => 'required|mimes:png,jpg,jpeg|max:2048',
@@ -110,7 +104,8 @@ class TicketingController extends Controller
                     'ticket_total' => $request->ticket_total,
                     'ticket_type' => $request->ticket_type,
                     'payment_total' => $request->payment_total,
-                    'ticket_type' => "Presale 2"
+                    'ticket_type' => "Presale 2",
+                    'code_ref' => $request->code_ref
                 ]);
 
 
