@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Booking;
 use DateTime;
 use DateTimeZone;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Builder;
 use PowerComponents\LivewirePowerGrid\Column;
@@ -33,7 +34,7 @@ final class BookingTable extends PowerGridComponent
     | Provides data to your Table using a Model or Collection
     |
     */
-    public function datasource(): Collection
+    public function datasource()
     {
         return Booking::query();
     }
@@ -82,10 +83,6 @@ final class BookingTable extends PowerGridComponent
             ->addColumn('ticket_total')
             ->addColumn('booking_status_formatter',function ($entry) {
                 return $entry->booking_status ? "Terverifikasi" : "Belum Terverifikasi";
-            })
-            ->addColumn('booking_time_formatted', function ($entry) {
-                $dt = new DateTime(Carbon::parse($entry->booking_time)->format('Y-m-d H:i:s'), new DateTimeZone('Asia/Jakarta'));
-                return $dt->format('Y-m-d');
             });
     }
 
@@ -129,8 +126,6 @@ final class BookingTable extends PowerGridComponent
             Column::make('Jumlah Pembayaran', 'payment_total')
                 ->sortable(),
             Column::make('Tanggal Pemesanan', 'booking_time_formatted')
-                ->sortable(),
-            Column::make('Status', 'booking_status_formatter')
                 ->sortable()
         ];
     }
