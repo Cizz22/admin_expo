@@ -30,7 +30,7 @@ final class VerifikasiTable extends PowerGridComponent
     | Provides data to your Table using a Model or Collection
     |
     */
-    public function datasource(): Builder
+    public function datasource(): Collection
     {
         return Booking::where('booking_status', false)->get();
     }
