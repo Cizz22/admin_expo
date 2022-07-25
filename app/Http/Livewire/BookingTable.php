@@ -115,7 +115,8 @@ final class BookingTable extends PowerGridComponent
                 ->sortable(),
             Column::make('Email', 'email')
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->makeInputText(),
             Column::make('Whatsapp', 'whatsapp'),
             Column::make('Jenis Tiket', 'ticket_type')
                 ->sortable(),
