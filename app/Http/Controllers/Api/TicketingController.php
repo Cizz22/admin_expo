@@ -52,9 +52,9 @@ class TicketingController extends Controller
             ]);
         }
 
-        response()->json([
+        return  response()->json([
             "success" => true,
-            "meesage" =>  "Ticket Ready"
+            "message" =>  "Ticket Ready"
         ], 200);
     }
 
@@ -71,6 +71,11 @@ class TicketingController extends Controller
         } else {
             Mail::to($booking->email)->send(new TicketMail($booking->name, $booking->ticket));
         }
+
+        return  response()->json([
+            "success" => true,
+            "message" =>  "Resend Ticket Success"
+        ], 200);
     }
 
     /**
