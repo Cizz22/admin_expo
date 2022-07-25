@@ -26,3 +26,16 @@ Route::resource('ticketing', TicketingController::class);
 
 Route::post("/sendTicket",[TicketingController::class, 'sendTicket']);
 Route::post("/checkTicket",[TicketingController::class, 'checkTicket']);
+
+Route::post('registerApi', function(Request $request){
+    $email = $request->email;
+    $name = $request->name;
+
+    Mail::to($email)->send(new RegisterMail($name));
+
+    return response()->json([
+        'success' => true,
+    ]);
+});
+
+

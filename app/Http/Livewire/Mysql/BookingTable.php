@@ -160,7 +160,7 @@ final class BookingTable extends PowerGridComponent
             Column::make('BOOKING STATUS', 'booking_status')
                 ->sortable()
                 ->searchable()
-                ->makeInputText(),
+                ->makeInputSelect(Booking::select('booking_status')->distinct()->get(), 'booking_status','booking_status', ['live-search' => true]),
 
             Column::make('PAYMENT TOTAL', 'payment_total')
                 ->sortable()
