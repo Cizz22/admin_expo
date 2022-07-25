@@ -83,8 +83,9 @@ class ModalAccept extends ModalComponent
             "booking_status" => "Terverifikasi"
         ]);
 
-        $this->closeModal();
-        header("Refresh:0");
+        $this->closeModalWithEvents([
+            'pg:eventRefresh-default',
+        ]);
     }
 
     public function makeid($ticketCount)

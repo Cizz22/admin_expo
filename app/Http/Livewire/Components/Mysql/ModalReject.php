@@ -23,6 +23,8 @@ class ModalReject extends ModalComponent
 
         $booking->delete();
 
-        $this->closeModal();
+        $this->closeModalWithEvents([
+            'pg:eventRefresh-default',
+        ]);
     }
 }

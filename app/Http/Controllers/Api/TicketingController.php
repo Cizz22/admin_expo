@@ -35,8 +35,33 @@ class TicketingController extends Controller
         ], 200);
     }
 
-    public function sendEmailp1(Request $request){
-        $booking = Booking::where('email', $request->email)->first();
+    public function checkTicket(Request $request)
+    {
+        $booking = MysqlBooking::where('email', $request->email)->first();
+        if (!$booking) {
+            return response()->json([
+                "success" => false,
+                "message" => "Booking not found"
+            ]);
+        }
+
+        if ($booking->ticket->isEmpty()) {
+            return response()->json([
+                "success" => false,
+                "message" => "Booking not verified"
+            ]);
+        }
+
+        response()->json([
+            "success" => true,
+            "meesage" =>  "Ticket Ready"
+        ], 200);
+    }
+
+    public function sendTicket(Request $request)
+    {
+        $booking = MysqlBooking::where('email', $request->email)->first();
+
         if ($booking->ticket_total > 4) {
             $tickets = $booking->ticket;
             $queue1 = $tickets->shift(4);
@@ -44,16 +69,8 @@ class TicketingController extends Controller
             Mail::to($booking->email)->send(new TicketMail($booking->name, $queue1));
             Mail::to($booking->email)->send(new TicketMail($booking->name, $tickets));
         } else {
-            $tickets = ModelsTicket::where('booking', $booking->_id)->get();
-            dd($tickets);
             Mail::to($booking->email)->send(new TicketMail($booking->name, $booking->ticket));
         }
-
-        response()->json([
-            "success"=>true,
-        ],200);
-
-
     }
 
     /**

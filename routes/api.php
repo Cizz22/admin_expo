@@ -24,15 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('ticketing', TicketingController::class);
 
 
-Route::post('registerApi', function(Request $request){
-    $email = $request->email;
-    $name = $request->name;
-
-    Mail::to($email)->send(new RegisterMail($name));
-
-    return response()->json([
-        'success' => true,
-    ]);
-});
-
-Route::post("/sendEmail",[TicketingController::class, 'sendEmailp1']);
+Route::post("/sendTicket",[TicketingController::class, 'sendTicket']);
+Route::post("/checkTicket",[TicketingController::class, 'checkTicket']);

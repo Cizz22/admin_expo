@@ -77,8 +77,9 @@ class ModalAcceptReject extends ModalComponent
         Mail::to($this->booking->email)->send(new TicketMail($this->booking->name, $tickets));
 
 
-        $this->emit('refreshComponent');
-        $this->closeModal();
+        $this->closeModalWithEvents([
+            'pg:eventRefresh-default',
+        ]);
     }
 
     public function makeid($ticketCount)
