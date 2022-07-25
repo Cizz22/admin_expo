@@ -8,6 +8,8 @@ use DateTimeZone;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
+use Jenssegers\Mongodb\Eloquent\Builder as EloquentBuilder;
+use Jenssegers\Mongodb\Query\Builder;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Footer;
 use PowerComponents\LivewirePowerGrid\Header;
@@ -34,9 +36,9 @@ final class BookingTable extends PowerGridComponent
     | Provides data to your Table using a Model or Collection
     |
     */
-    public function datasource(): ?Collection
+    public function datasource(): EloquentBuilder
     {
-        return Booking::all();
+        return Booking::query();
     }
 
     /*

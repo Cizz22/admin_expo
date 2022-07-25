@@ -6,6 +6,7 @@ use App\Models\Booking;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
+use Jenssegers\Mongodb\Eloquent\Builder;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Footer;
@@ -29,7 +30,7 @@ final class VerifikasiTable extends PowerGridComponent
     | Provides data to your Table using a Model or Collection
     |
     */
-    public function datasource(): ?Collection
+    public function datasource(): Builder
     {
         return Booking::where('booking_status', false)->get();
     }
