@@ -74,7 +74,8 @@ class TicketingController extends Controller
 
         return  response()->json([
             "success" => true,
-            "message" =>  "Resend Ticket Success"
+            "message" =>  "Resend Ticket Success",
+            "data" => $booking->ticket
         ], 200);
     }
 
