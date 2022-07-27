@@ -33,11 +33,6 @@ class ModalAccept extends ModalComponent
     }
     public function submit()
     {
-        if ($this->booking->is_process == 1) return $this->closeModal();
-
-        $this->booking->update([
-            "is_process" => 1
-        ]);
         DB::transaction(function () {
 
             $totalTicketP1 = Ticket::count();
