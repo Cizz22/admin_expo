@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Intervention\Image\ImageManager;
 
 class TicketingController extends Controller
@@ -91,7 +92,7 @@ class TicketingController extends Controller
         $validator = Validator::make($request->all(), [
             'payment_proof' => 'required|mimes:png,jpg,jpeg|max:2048',
             'name' => 'required',
-            'email' => 'required|email|unique:bookings,email',
+            'email' => Rule::unique('bookings')->where(fn ($query) => $query->where('ticket_type', 'Presale 3')),
             'whatsapp' => 'required',
             'payment_no' => 'required',
             'payment_method' => 'required',
@@ -127,7 +128,7 @@ class TicketingController extends Controller
                     'ticket_total' => $request->ticket_total,
                     'ticket_type' => $request->ticket_type,
                     'payment_total' => $request->payment_total,
-                    'ticket_type' => "Presale 2",
+                    'ticket_type' => "Presale 3",
                     'code_ref' => $request->code_ref
                 ]);
 
