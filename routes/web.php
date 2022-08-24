@@ -31,4 +31,5 @@ Route::get('/daftar-pembeli/2' ,[MysqlBookingController::class, 'index'])->name(
 Route::get('/verifikasi' ,[VerifikasiController::class, 'index'])->name('verifikasi');
 Route::get('/verifikasi/2' ,[MysqlVerifikasiController::class, 'index'])->name('verifikasi-2');
 
+
 require __DIR__.'/auth.php';

@@ -85,14 +85,14 @@ class TicketingController extends Controller
 
         if(!$ticket){
             return response()->json([
-                "success" => true,
+                "success" => false,
                 "message" => "Ticket Not Found"
             ]);
         }
 
         if($ticket->status == 'DIAMBIL') {
             return response()->json([
-                "success" => true,
+                "success" => false,
                 "message" => "Ticket has been redeemed"
             ]);
         }
@@ -103,7 +103,7 @@ class TicketingController extends Controller
 
         return response()->json([
             "success" => true,
-            "message" => "Ticket has been redeemed",
+            "message" => "Ticket successfully redeemed",
             "data" => $data
         ]);
     }
