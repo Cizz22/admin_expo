@@ -150,7 +150,8 @@ final class BookingTable extends PowerGridComponent
                 ->makeInputText(),
 
             Column::make('TICKET TOTAL', 'ticket_total')
-                ->makeInputRange(),
+                ->makeInputRange()
+                ->withSum(),
 
             Column::make('TICKET TYPE', 'ticket_type')
                 ->sortable()

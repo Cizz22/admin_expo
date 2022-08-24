@@ -117,7 +117,8 @@ final class BookingTable extends PowerGridComponent
             Column::make('Jenis Tiket', 'ticket_type')
                 ->sortable(),
             Column::make('Jumlah Tiket', 'ticket_total')
-                ->sortable(),
+                ->sortable()
+                ->withSum(),
             Column::make('Jenis Akun Pembayaran', 'payment_method')
                 ->searchable()
                 ->sortable(),
