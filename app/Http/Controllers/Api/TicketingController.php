@@ -128,7 +128,7 @@ class TicketingController extends Controller
                     'ticket_total' => $request->ticket_total,
                     'ticket_type' => $request->ticket_type,
                     'payment_total' => $request->payment_total,
-                    'ticket_type' => "Presale 3",
+                    'ticket_type' => "OTS",
                     'code_ref' => $request->code_ref
                 ]);
 

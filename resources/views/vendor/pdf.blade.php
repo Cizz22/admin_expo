@@ -341,7 +341,7 @@
                         <td class="tg-0pky" colspan="8">
                             <section>
                                 <div class="bg-white p-4">
-                                    <h1 class="font-bold text-xl">TICKET TYPE: {{$ticket_type}} (Rp. {{$ticket_type == "Presale 1" ? "30.000" : ($ticket_type == "Presale 2" ? "45.000" : "60.000")}},-)</h1>
+                                    <h1 class="font-bold text-xl">TICKET TYPE: {{$ticket_type}} (Rp. {{$ticket_type == "Presale 1" ? "30.000" : ($ticket_type == "Presale 2" ? "45.000" : ($ticket_type == "Presale 3" ? "60.000" : "70.000"))}},-)</h1>
                                     <h1 class="font-bold text-xl">UKM EXPO 2022</h1>
                                 </div>
                             </section>
