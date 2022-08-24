@@ -27,6 +27,9 @@ Route::resource('ticketing', TicketingController::class);
 Route::post("/sendTicket",[TicketingController::class, 'sendTicket']);
 Route::post("/checkTicket",[TicketingController::class, 'checkTicket']);
 
+Route::post('/scan-tiket' ,[TicketingController::class, 'cekTicket']);
+Route::post('/scan-tiket/2' ,[TicketingController::class, 'cekTicketP1']);
+
 Route::post('registerApi', function(Request $request){
     $email = $request->email;
     $name = $request->name;

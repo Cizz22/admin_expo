@@ -80,6 +80,62 @@ class TicketingController extends Controller
         ], 200);
     }
 
+    public function cekTicket(Request $request){
+        $ticket = Ticket::where('uniqueId', $request->uniqueId)->first();
+
+        if(!$ticket){
+            return response()->json([
+                "success" => true,
+                "message" => "Ticket Not Found"
+            ]);
+        }
+
+        if($ticket->status == 'DIAMBIL') {
+            return response()->json([
+                "success" => true,
+                "message" => "Ticket has been redeemed"
+            ]);
+        }
+
+        $data = $ticket->update([
+            'status' => 'DIAMBIL'
+        ]);
+
+        return response()->json([
+            "success" => true,
+            "message" => "Ticket has been redeemed",
+            "data" => $data
+        ]);
+    }
+
+    public function cekTicketP1(Request $request){
+        $ticket = ModelsTicket::where('uniqueId', $request->uniqueId)->first();
+
+        if(!$ticket){
+            return response()->json([
+                "success" => true,
+                "message" => "Ticket Not Found"
+            ]);
+        }
+
+        if($ticket->status == 'DIAMBIL') {
+            return response()->json([
+                "success" => true,
+                "message" => "Ticket has been redeemed"
+            ]);
+        }
+
+        $data = $ticket->update([
+            'status' => 'DIAMBIL'
+        ]);
+
+        return response()->json([
+            "success" => true,
+            "message" => "Ticket has been redeemed",
+            "data" => $data
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
