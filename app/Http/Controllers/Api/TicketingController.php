@@ -120,15 +120,13 @@ class TicketingController extends Controller
             ]);
         }
 
-        return response()->json($ticket['status']);
 
-        if($ticket->status == 'DIAMBIL') {
+        if($ticket['status'] == 'DIAMBIL') {
             return response()->json([
                 "success" => true,
                 "message" => "Ticket has been redeemed"
             ]);
         }
-
 
         $data = $ticket->update([
             'status' => 'DIAMBIL'
