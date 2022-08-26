@@ -148,7 +148,7 @@ class TicketingController extends Controller
         $validator = Validator::make($request->all(), [
             'payment_proof' => 'required|mimes:png,jpg,jpeg|max:2048',
             'name' => 'required',
-            'email' => Rule::unique('bookings')->where(fn ($query) => $query->where('ticket_type', 'Presale 3')),
+            'email' => Rule::unique('bookings')->where(fn ($query) => $query->where('ticket_type', 'OTS')),
             'whatsapp' => 'required',
             'payment_no' => 'required',
             'payment_method' => 'required',
