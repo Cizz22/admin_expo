@@ -134,7 +134,7 @@ class TicketingController extends Controller
 
         return response()->json([
             "success" => true,
-            "message" => "Ticket has been redeemed",
+            "message" => "Ticket successfully redeemed",
             "data" => $ticket->booking
         ]);
     }
