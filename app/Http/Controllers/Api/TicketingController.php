@@ -109,6 +109,7 @@ class TicketingController extends Controller
     }
 
     public function cekTicketP1(Request $request){
+        return response()->json($request);
         $ticket = ModelsTicket::where('uniqueId', $request->uniqueId)->first();
 
         return response()->json($ticket);
