@@ -110,9 +110,8 @@ class TicketingController extends Controller
 
     public function cekTicketP1(Request $request){
 
-        $ticket = ModelsTicket::where('uniqueId', $request->uniqueId)->get();
+        $ticket = ModelsTicket::where('uniqueId', $request->uniqueId)->first();
 
-        return response()->json($ticket);
 
         if(!$ticket){
             return response()->json([
@@ -121,12 +120,15 @@ class TicketingController extends Controller
             ]);
         }
 
+        return response()->json($ticket['status']);
+
         if($ticket->status == 'DIAMBIL') {
             return response()->json([
                 "success" => true,
                 "message" => "Ticket has been redeemed"
             ]);
         }
+
 
         $data = $ticket->update([
             'status' => 'DIAMBIL'
